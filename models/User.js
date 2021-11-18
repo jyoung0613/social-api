@@ -1,5 +1,30 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, Types } = require("mongoose");
 const dateFormat = require("../utils/dateFormat");
+
+const FriendSchema = new Schema(
+  {
+    // set custom id to avoid confusion with parent user_id
+    friendId: {
+      type: Schema.Types.ObjectId,
+      default: () => new Types.ObjectId()
+    },
+    username: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      get: createdAtVal => dateFormat(createdAtVal)
+    }
+  },
+  {
+    toJSON: {
+      getters: true
+    }
+  }
+);
+
 
 const UserSchema = new Schema(
   {
@@ -19,23 +44,13 @@ const UserSchema = new Schema(
       default: Date.now,
       get: (createdAtVal) => dateFormat(createdAtVal),
     },
-    createdBy: {
-      type: String,
-      required: true,
-    }, 
     thoughts: [
       {
-        value: "_id",
+        type: Schema.Types.ObjectId,
         ref: "Thought",
       },
     ],
-    friends: [
-      {
-        type: Schema.Types.ObjectId,
-        value: "_id",
-        ref: "User",
-      },
-    ],
+    friends: [FriendSchema],
   },
   {
     toJSON: {
@@ -48,8 +63,13 @@ const UserSchema = new Schema(
 );
 
 // get total count of friends on retrieval
-UserSchema.virtual("friendCount").get(function () {
-  return this.friends.reduce((total, friend) => total + friend.length + 1, 0);
+UserSchema.virtual('friendCount').get(function () {
+  return this.friends.length;
+});
+
+// get total count of comments and replies on retrieval
+UserSchema.virtual('thoughtCount').get(function () {
+  return this.thoughts.reduce((total, thought) => total + thought.reactions.length + 1, 0);
 });
 
 // create the User model using UserSchema

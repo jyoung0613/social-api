@@ -1,4 +1,4 @@
-const { Schema, model, Types } = require('mongoose');
+const { Schema, model, Types, Mongoose } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
 const ReactionSchema = new Schema(
@@ -13,8 +13,8 @@ const ReactionSchema = new Schema(
             charMax: 280
         },
         username: {
-            type: String,
-            required: true,
+            type: Schema.Types.ObjectId,
+            ref: 'User'
         },
         createdAt: {
             type: Date,
@@ -31,10 +31,6 @@ const ReactionSchema = new Schema(
 
 const ThoughtSchema = new Schema(
     {  
-        writtenBy: {
-            type: String,
-            required: true
-        },
         thoughtText: {
             type: String,
             required: true,
@@ -46,8 +42,7 @@ const ThoughtSchema = new Schema(
            get: createdAtVal => dateFormat(createdAtVal) 
         },
         username: {
-            type: String,
-            required: true,
+            type: Schema.Types.ObjectId,
             ref: 'User'
         },
         // use ReactionSchema to validate data for reaction
