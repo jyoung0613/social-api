@@ -1,22 +1,13 @@
 const { Schema, model, Types } = require("mongoose");
-const dateFormat = require("../utils/dateFormat");
+const { isEmail } = require('validator');
 
 const FriendSchema = new Schema(
   {
     // set custom id to avoid confusion with parent user_id
-    friendId: {
-      type: Schema.Types.ObjectId,
-      default: () => new Types.ObjectId()
-    },
-    username: {
+    friendId: [{
       type: Schema.Types.ObjectId,
       ref: 'User',
-    },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-      get: createdAtVal => dateFormat(createdAtVal)
-    }
+    }]
   },
   {
     toJSON: {
@@ -24,7 +15,6 @@ const FriendSchema = new Schema(
     }
   }
 );
-
 
 const UserSchema = new Schema(
   {
@@ -36,13 +26,9 @@ const UserSchema = new Schema(
     },
     email: {
       type: String,
-      required: "email address is required",
+      required: true,
       unique: true,
-    },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-      get: (createdAtVal) => dateFormat(createdAtVal),
+      validate: { validator: isEmail , message: 'Invalid email.' }
     },
     thoughts: [
       {
