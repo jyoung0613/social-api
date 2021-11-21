@@ -30,6 +30,7 @@ From Visual Studio Code or the code editor of your choice:
 
 ## Screenshots
 
+- ![Insomnia_video_walkthrough](https://watch.screencastify.com/v/BgUm9DZFId8AGvmVw5ZA)
 - ![Insomnia Shot Create-a-friend](./public/images/Create-a-friend.png)
 - ![Insomnia Shot Create-a-reaction](./public/images/Create-a-reaction.png)
 - ![Insomnia Shot Create-a-thought](./public/images/Create-a-thought.png)
