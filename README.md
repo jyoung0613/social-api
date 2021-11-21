@@ -2,11 +2,13 @@
 
 A Back End API setup for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list.
 
-## Technologies Used
+## Technologies_Used
+
 - JavaScript
 - Node.js
 - [NPM Express.js Package](https://www.npmjs.com/package/express)
 - [NPM Mongoose.js Package](https://www.npmjs.com/package/mongoose)
+- [Insomnia_Core](https://insomnia.rest/download)
 
 ## Local Installation & Usage
 
@@ -27,14 +29,24 @@ From Visual Studio Code or the code editor of your choice:
     2.7 Test that the routes work
 
 ## Screenshots
-- [Insomnia Shot One]()
-- [Insomnia Shot Two]()
-- [Insomnia Shot Three]()
-- [Insomnia Shot four]()
-- [Insomnia Shot five]()
-- [Insomnia Shot six]()
-- [Social API APP Shot One]()
-- [Social API APP Shot Two]()
+
+- [Insomnia Shot Create-a-friend](./public/images/Create-a-friend)
+- [Insomnia Shot Create-a-reaction](./public/images/Create-a-reaction)
+- [Insomnia Shot Create-a-thought](./public/images/Create-a-thought)
+- [Insomnia Shot Create-a-user](./public/images/Create-a-user)
+- [Insomnia Shot Delete-a-friend](./public/images/Delete-a-friend)
+- [Insomnia Shot Delete-a-thought](./public/images/Delete-a-thought)
+- [Insomnia Shot Delete-a-user](./public/images/Delete-a-user)
+- [Insomnia Shot Delete-reaction-byId](./public/images/Delete-reaction-byId)
+- [Insomnia Shot Get-all-thoughts](./public/images/Get-all-thoughts)
+- [Insomnia Shot Get-all-users](./public/images/Get-all-users)
+- [Insomnia Shot Get-a-thought-byId](./public/images/Get-a-thought-byId)
+- [Insomnia Shot Get-user-byId](./public/images/Get-user-byId)
+- [Insomnia Shot New-user-bad-email](./public/images/New-user-bad-email)
+- [Insomnia Shot Update-a-thought](./public/images/Update-a-thought)
+- [Insomnia Shot Update-a-user](./public/images/Update-a-user)
+- [Social API Code Shot One](./public/images/social-api-shot-one)
+- [Social API Code Shot Two](./public/images/social-api-shot-two)
 
 ## MIT License
 
@@ -59,4 +71,5 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ## Questions
+
 For inquiries, please contact [John Young](https://github.com/jyoung0613).
