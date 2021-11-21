@@ -9,6 +9,8 @@
   },
   "devDependencies": {},
   "scripts": {
+    "start": "node server.js",
+    "watch": "nodemon",
     "test": "jest"
   },
   "repository": {
